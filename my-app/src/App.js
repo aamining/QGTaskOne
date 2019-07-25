@@ -1,6 +1,9 @@
 
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+//import { Container, Row, Col } from 'react-bootstrap'
+
+
 import QA from './components/QA';
 
 import './App.css';
@@ -21,11 +24,14 @@ class App extends Component {
   componentDidMount () {
     this.setState({qas: data});
   }
-
+  
   render() {
     return (
-      
+
+
+
       <div className="App">
+      
         <Router>
           <div>
               {
@@ -35,6 +41,7 @@ class App extends Component {
           </div>
         </Router>
       </div>
+         
     );
   }
 }

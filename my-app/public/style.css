@@ -1,4 +1,4 @@
-.flx {
+flx {
     display: flex; /* or inline-flex */
     flex-wrap: nowrap;
     background-color: rgba(255, 0, 0, 0.3)

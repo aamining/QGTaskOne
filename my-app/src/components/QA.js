@@ -1,20 +1,23 @@
 import React from 'react';
 import './QA.css';
+import { Container, Row, Col } from 'react-bootstrap'
 
-
-function QA (props){
+const QA = (prop) => (
+   
+<div className="flx">
+        <Container>
+            <Row>
+              <Col>{prop.qa.answer}</Col>
+              <Col>{prop.qa.section}</Col>
+            </Row>
+          </Container>
+    </div>
+    // <div>
+    // {document.getElementById('left').innerHTML = prop.qa.answer}
     
-    return(
-        <div>
-        
-        <h1>Question: {props.qa.question}</h1>
-        <h3>Answer: {props.qa.answer}</h3>
+    // {document.getElementById('right').innerHTML = prop.qa.section}
+    // </div>
 
-
-        
-        </div>
-
-    )
-}
+);
 
 export default QA;

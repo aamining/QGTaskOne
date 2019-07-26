@@ -1,10 +1,11 @@
 import React from 'react';
 import './QA.css';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col} from 'react-bootstrap'
 
 const QA = (prop) => (
-   
-<div className="flx">
+
+<div>
+
         <Container>
             <Row>
               <Col>{prop.qa.answer}</Col>
@@ -19,5 +20,4 @@ const QA = (prop) => (
     // </div>
 
 );
-
 export default QA;

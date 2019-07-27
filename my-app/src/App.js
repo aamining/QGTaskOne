@@ -34,9 +34,7 @@ class App extends Component {
     console.log(this.state.qa)
   }
 
-  
-
-  
+    
   render() {
     console.log("value=",this.state.value)
       const filterqas= this.state.qas.filter((qa)=>{return qa.section===this.state.value});
@@ -70,7 +68,7 @@ class App extends Component {
         <Router>
           <div>
               {
-                <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa}/>))}/> 
+                <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa} value={this.state.value}/>))}/> 
                
               }
           </div>

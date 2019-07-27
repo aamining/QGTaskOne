@@ -7,17 +7,15 @@ const QA = (prop) => (
 <div>
 
         <Container>
+       
             <Row>
-              <Col>{prop.qa.questionkey}</Col>
-              <Col>{prop.qa.section}</Col>
+            <Col xs lg="2"></Col>
+            <Col> <a href={prop.qa.url}>  {prop.qa.questionkey} </a></Col>
+            <Col xs lg="2"></Col>
             </Row>
           </Container>
     </div>
-    // <div>
-    // {document.getElementById('left').innerHTML = prop.qa.answer}
     
-    // {document.getElementById('right').innerHTML = prop.qa.section}
-    // </div>
 
 );
 export default QA;

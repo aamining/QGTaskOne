@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {DropdownButton,Dropdown } from 'react-bootstrap'
+
 
 import QA from './components/QA';
 
@@ -16,15 +16,31 @@ class App extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        qas: []      
+        qas: [], 
+        value:'General questions'   
       }  
+    this.handleChange = this.handleChange.bind(this);
+
   }
 
   componentDidMount () {
     this.setState({qas: data});
   }
+
+  handleChange(event) {
+    
+    this.setState({value: event.target.value});
+    
+    console.log(this.state.qa)
+  }
+
+  
+
   
   render() {
+    console.log("value=",this.state.value)
+      const filterqas= this.state.qas.filter((qa)=>{return qa.section===this.state.value});
+        console.log("filterqas=",filterqas)
     
     return (
       
@@ -32,29 +48,31 @@ class App extends Component {
 
       <div className="App">
       <div className="flx">
-    <DropdownButton id="faqs" title="Frequently Asked Questions (FAQs)" >
-    <Dropdown.Item eventKey="1">General Questions</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Fees</Dropdown.Item>
-    <Dropdown.Item eventKey="3">Questionnaire to determine risk tolerance score</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Your Investment Plan</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Your account</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Creating an account</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Creating an account — SMSF and Trust account types</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Creating an account — Residents of other countries</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Adding funds</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Multiple portfolios</Dropdown.Item>
-    <Dropdown.Item eventKey="2">Taxes</Dropdown.Item>
-
-    </DropdownButton>
+      
     
-    </div>
+        <label>
+         Question Area:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="General questions">General Questions</option>
+            <option value="Fees">Fees</option>
+            <option value="Questionnaire to determine risk tolerance score">Questionnaire to determine risk tolerance score</option>
+            <option value="Your Investment Plan">Your Investment Plan</option>
+            <option value="Your account">Your account</option>
+            <option value="Creating an account">Creating an account</option>
+            <option value="Creating an account — SMSF and Trust account types">Creating an account — SMSF and Trust account types</option>
+            <option value="Creating an account — Residents of other countries">Creating an account — Residents of other countries</option>
+          </select>
+        </label>
+     
+      
+      </div>
       
         <Router>
           <div>
               {
-                <Route path = "/" render={() => this.state.qas.map((qa) => (<QA key={qa.id} qa={qa}/>))}/> 
+                <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa}/>))}/> 
+               
               }
-
           </div>
         </Router>
       </div>

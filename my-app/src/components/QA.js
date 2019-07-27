@@ -8,7 +8,7 @@ const QA = (prop) => (
 
         <Container>
             <Row>
-              <Col>{prop.qa.answer}</Col>
+              <Col>{prop.qa.questionkey}</Col>
               <Col>{prop.qa.section}</Col>
             </Row>
           </Container>

@@ -1,14 +1,9 @@
-
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-
-
-import QA from './components/QA';
-
+import QA from './Components/QA';
 import './App.css';
-
-
 import data from './data/data.json';
+
 
 
 class App extends Component {
@@ -17,9 +12,11 @@ class App extends Component {
     super(props);
       this.state = {
         qas: [], 
-        value:'General questions'   
+        value:'General questions' ,
+        newUrl:null
       }  
     this.handleChange = this.handleChange.bind(this);
+    this.updateUrl = this.updateUrl.bind(this);
 
   }
 
@@ -30,8 +27,12 @@ class App extends Component {
   handleChange(event) {
     
     this.setState({value: event.target.value});
-    
     console.log(this.state.qa)
+  }
+
+  updateUrl(url){
+    this.setState({newUrl: url})
+    
   }
 
     
@@ -39,14 +40,14 @@ class App extends Component {
     console.log("value=",this.state.value)
       const filterqas= this.state.qas.filter((qa)=>{return qa.section===this.state.value});
         console.log("filterqas=",filterqas)
+        
     
     return (
       
 
-
+      
       <div className="App">
       <div className="flx">
-      
     
         <label>
          Question Area:
@@ -62,13 +63,12 @@ class App extends Component {
           </select>
         </label>
      
-      
       </div>
       
         <Router>
           <div>
               {
-                <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa} value={this.state.value}/>))}/> 
+                <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa} triger={this.updateUrl}/>))}/> 
                
               }
           </div>

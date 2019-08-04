@@ -1,51 +1,45 @@
 import React, {Component} from 'react';
-
-import { Container, Row, Col} from 'react-bootstrap';
-
+//import {pageOne} from '../Components/pageOne';
+import { Container, Row, Col } from 'react-bootstrap';
 
 
 export default class QA extends Component {
-
-
-    sendData = () => {
-        this.props.triger({url:this.props.qa.url});
+    
+    constructor(props) {
+        super(props);
+        this.state={
+            newUrl:""
+        }
+        this.changeUrl = this.changeUrl.bind(this);
+    }
+    
+    changeUrl(e){
+        e.preventDefault();
+        this.setState({newUrl:this.props.qa.url})
+             
     }
 
-        render(){
+        render(){         
+            console.log("newUrl=", this.state.newUrl)
             return (
+                
+            
             <Container>
                 <Row>
                     <Col xs lg="1"></Col>
-                        <Col> 
+                        <Col > 
                             <ul>
-                                <a href={this.props.qa.url} onClick={this.sendData}>
-                                        <li>{this.props.qa.questionkey}</li>
-                                </a>
+                                  
+                             <button  style={{border:'none'}} onClick={this.changeUrl}>{this.props.qa.questionkey}</button>
+                                
                             </ul>
                         </Col>
                     <Col xs lg="1"></Col>
                 </Row>  
             </Container> 
+            
         ) 
     }
 }
-// const QA = (props) => (
-    
-//     <Container>
-//     <Row>
-//         <Col xs lg="1"></Col>
-//             <Col> 
-//                 <ul>
-//                     <a href={props.qa.url} onClick={sendData}>
-//                             <li>{props.qa.questionkey}</li>
-//                     </a>
-//                 </ul>
-//             </Col>
-//         <Col xs lg="1"></Col>
-//     </Row>  
-// </Container> 
-    
 
-// );
-// export default QA;
 

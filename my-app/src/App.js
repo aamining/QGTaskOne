@@ -13,10 +13,10 @@ class App extends Component {
       this.state = {
         qas: [], 
         value:'General questions' ,
-        newUrl:null
+        
       }  
     this.handleChange = this.handleChange.bind(this);
-    this.updateUrl = this.updateUrl.bind(this);
+    
 
   }
 
@@ -25,23 +25,18 @@ class App extends Component {
   }
 
   handleChange(event) {
-    
+    event.preventDefault();
     this.setState({value: event.target.value});
-    console.log(this.state.qa)
-  }
-
-  updateUrl(url){
-    this.setState({newUrl: url})
     
   }
 
+ 
     
   render() {
     console.log("value=",this.state.value)
       const filterqas= this.state.qas.filter((qa)=>{return qa.section===this.state.value});
         console.log("filterqas=",filterqas)
-        
-    
+      console.log(this.state.path)
     return (
       
 
@@ -68,9 +63,10 @@ class App extends Component {
         <Router>
           <div>
               {
-                <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa} triger={this.updateUrl}/>))}/> 
-               
+                <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa} />))}/> 
+
               }
+              
           </div>
         </Router>
       </div>

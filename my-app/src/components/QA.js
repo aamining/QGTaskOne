@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-//import {pageOne} from '../Components/pageOne';
+
 import { Container, Row, Col } from 'react-bootstrap';
 
 
@@ -8,38 +8,43 @@ export default class QA extends Component {
     constructor(props) {
         super(props);
         this.state={
-            newUrl:""
+            
+            
         }
-        this.changeUrl = this.changeUrl.bind(this);
+        this.callback = this.callback.bind(this);
     }
     
-    changeUrl(e){
-        e.preventDefault();
-        this.setState({newUrl:this.props.qa.url})
-             
+    callback(event){
+        
+        event.preventDefault();
+        const url = this.props.qa.url
+        this.props.qaCallback(url)
+        
     }
+    
 
-        render(){         
-            console.log("newUrl=", this.state.newUrl)
-            return (
-                
+    render(){         
+        
+        return (
             
-            <Container>
-                <Row>
-                    <Col xs lg="1"></Col>
-                        <Col > 
-                            <ul>
-                                  
-                             <button  style={{border:'none'}} onClick={this.changeUrl}>{this.props.qa.questionkey}</button>
-                                
-                            </ul>
-                        </Col>
-                    <Col xs lg="1"></Col>
-                </Row>  
-            </Container> 
+                <Container >
+                    <Row>
+                        <Col xs lg="1"></Col>
+                            <Col > 
+                                <ul>
+                                   <li> 
+                                <a href={this.props.qa.url} style={{border:'none'}} onClick={this.callback} >{this.props.qa.questionkey}</a>
+                                    </li>
+                                </ul>
+                            </Col>
+                        <Col xs lg="1"></Col>
+                    </Row>  
+                </Container>
             
-        ) 
-    }
+        )
+           
+    } 
+  
 }
 
 

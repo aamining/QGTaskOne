@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-//import  { useState } from 'react';
-import { Container,Jumbotron } from 'react-bootstrap';
+import { Container,Jumbotron,Button } from 'react-bootstrap';
 
 
 
@@ -16,6 +15,7 @@ import { Container,Jumbotron } from 'react-bootstrap';
             <Container>
             <h1>{this.props.faq.question}</h1>
             <p> {this.props.faq.answer} </p>
+            <Button href="/"> Back to FAQ(s) page </Button>
             </Container>
             
          </Jumbotron>

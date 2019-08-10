@@ -28,13 +28,12 @@ export default class QA extends Component {
         return (
             
                 <Container >
+                    
                     <Row>
                         <Col xs lg="1"></Col>
-                            <Col > 
-                                <ul>
-                                   <li> 
-                                <a href={this.props.qa.url} style={{border:'none'}} onClick={this.callback} >{this.props.qa.questionkey}</a>
-                                    </li>
+                             <Col > 
+                                <ul>    
+                                <a href={this.props.qa.url} style={{border:'none'}} onClick={this.callback} >{this.props.qa.questionkey}</a>  
                                 </ul>
                             </Col>
                         <Col xs lg="1"></Col>

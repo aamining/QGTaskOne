@@ -37,9 +37,7 @@ class App extends Component {
     this.setState({newUrl:url})
     
   }
-
  
-    
   render() {
       
     console.log("value=",this.state.value)

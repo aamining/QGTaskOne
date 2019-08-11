@@ -16,8 +16,7 @@ import { Container,Jumbotron,Button } from 'react-bootstrap';
             <h1>{this.props.faq.question}</h1>
             <p> {this.props.faq.answer} </p>
             <Button href="/"> Back to FAQ(s) page </Button>
-            </Container>
-            
+            </Container>   
          </Jumbotron>
 
             

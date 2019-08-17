@@ -18,6 +18,7 @@ class App extends Component {
       }  
     this.handleChange = this.handleChange.bind(this);
     this.changeUrl = this.changeUrl.bind(this);
+    this.handlenewUrl = this.handlenewUrl.bind(this)
     
 
   }
@@ -36,6 +37,11 @@ class App extends Component {
    
     this.setState({newUrl:url})
     
+  }
+
+  handlenewUrl(newUrl){
+    this.setState({newUrl:"/"})
+    this.setState({value:'General questions'})
   }
  
   render() {
@@ -64,7 +70,7 @@ class App extends Component {
 
               }
               {
-                this.state.newUrl !=="/" ? <Route path = "/"  render = {() => filterfaq.map((faq)=>(<Faq  key={faq.id} faq={faq} />) )}/> : null
+                this.state.newUrl !=="/" ? <Route path = "/"  render = {() => filterfaq.map((faq)=>(<Faq  key={faq.id} faq={faq} faqCallback = {this.handlenewUrl}/>) )}/> : null
               }
           </div>
         </Router>

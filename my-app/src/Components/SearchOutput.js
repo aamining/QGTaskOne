@@ -32,7 +32,8 @@ export default class SearchOutput extends Component {
             <Col xs lg="1"></Col>
                  <Col className="search"> 
                     <ul>    
-                    <a href={this.props.qs.url} style={{border:'none'}} onClick={this.callback} >{this.props.qs.questionkey}</a>  
+                    <a href={this.props.qs.url} style={{border:'none'}} onClick={this.callback} >{this.props.qs.questionkey}</a>
+                      
                     </ul>
                 </Col>
             <Col xs lg="1"></Col>

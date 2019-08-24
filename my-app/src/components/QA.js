@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './QA.css'
 import { Container, Row, Col } from 'react-bootstrap';
 
 
@@ -31,7 +31,7 @@ export default class QA extends Component {
                     
                     <Row>
                         <Col xs lg="1"></Col>
-                             <Col > 
+                             <Col className="qa"> 
                                 <ul>    
                                 <a href={this.props.qa.url} style={{border:'none'}} onClick={this.callback} >{this.props.qa.questionkey}</a>  
                                 </ul>

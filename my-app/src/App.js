@@ -48,8 +48,8 @@ class App extends Component {
   }
 
   handleSearchOutput(search){
-    
     this.setState({search:search})
+    
   }
  
   render() {
@@ -75,7 +75,7 @@ class App extends Component {
                 this.state.newUrl ==="/" ? <Area areaCallback = {this.handleChange}/> :null
               }
               {
-                this.state.newUrl ==="/" ? <Search searchCallback = {this.handleSearchOutput}/> :null
+                this.state.newUrl ==="/" ? <Search {...this.state} searchCallback = {this.handleSearchOutput}/> :null
               }
               {
                 this.state.newUrl ==="/" && this.state.search !== '' ? <Route path = "/" render={() => filtersearch.map((qs) => (<SearchOutput key={qs.id} qs={qs} qaCallback = {this.changeUrl} />))}/> :null

@@ -22,15 +22,7 @@ import { Container, Row, Col } from 'react-bootstrap';
        return (
         <Container >
                     
-        <Row>
-            <Col xs lg="3"></Col>
-                <Col xs lg="6">
-                <label style={{color:'red', font:'bold 25px/30px Georgia, serif'}}>
-                    Frequently Asked Questions (FAQs)
-                </label>
-                </Col>
-            <Col xs lg="3"></Col>
-        </Row>
+       
                 
         <Row>
             <Col xs lg="3"></Col>

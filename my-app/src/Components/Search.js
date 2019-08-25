@@ -16,14 +16,19 @@ export default class Search extends Component {
     }   
         
    handleSearch(event){
-       const search = event.target.value
+       const search = event.target.value.substr(0, 20)
+       var visibility =event.target.valueOne
     //this.setState({search: event.target.value})
-    this.props.searchCallback(search)
+     search.length === 0 ? visibility="true" : visibility="false"
+     //console.log("From SEARCH search length is=",search.length)
+     //console.log("From SEARCH viibility is=",visibility)
+
+    this.props.searchCallback(search,visibility)
     
    }
     
     render(){         
-        
+
         return (
             <div>
                 <Container >
@@ -32,7 +37,7 @@ export default class Search extends Component {
                         <Col xs lg="2"></Col>
                         <Col > 
                         
-                        <input id="search" value={this.props.search} onChange ={this.handleSearch}  style={{borderColor:'Blue', width:'600px', borderStyle:'solid',borderRadius: '25px', marginTop: '10px', marginBottom: '10px'}} placeholder="Search in FAQs"></input>
+                        <input id="search" value={this.props.search} valueOne={this.props.visibility} onChange ={this.handleSearch}  style={{borderColor:'Blue', width:'600px', borderStyle:'solid',borderRadius: '25px', marginTop: '10px', marginBottom: '10px'}} placeholder="Search in FAQs"></input>
                         </Col>
                         <Col xs lg="2"></Col>
                     </Row>  

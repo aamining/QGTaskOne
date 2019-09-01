@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import QA from './Components/QA';
 import Faq from './Components/Faq';
 import Title from './Components/Title';
@@ -14,91 +14,91 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-      this.state = {
-        qas: [], 
-        value:'General questions',
-        newUrl:"/",
-        search:'',
-        visibility:'true',
-      }  
+    this.state = {
+      qas: [],
+      value: 'General questions',
+      newUrl: "/",
+      search: '',
+      visibility: 'true',
+    }
     this.handleChange = this.handleChange.bind(this);
     this.changeUrl = this.changeUrl.bind(this);
     this.handlenewUrl = this.handlenewUrl.bind(this);
     this.handleSearchOutput = this.handleSearchOutput.bind(this)
-    
+
   }
 
-  componentDidMount () {
-    this.setState({qas: data});
+  componentDidMount() {
+    this.setState({ qas: data });
   }
 
   handleChange(value) {
-    
-    this.setState({value: value});
-    
+
+    this.setState({ value: value });
+
   }
 
-  changeUrl(url){
-   
-    this.setState({newUrl:url})
-    
+  changeUrl(url) {
+
+    this.setState({ newUrl: url })
+
   }
 
-  handlenewUrl(newUrl){
-    this.setState({newUrl:"/"})
-    this.setState({value:'General questions'})
-    this.setState({visibility:"true"})
-    this.setState({search:''})
+  handlenewUrl(newUrl) {
+    this.setState({ newUrl: "/" })
+    this.setState({ value: 'General questions' })
+    this.setState({ visibility: "true" })
+    this.setState({ search: '' })
   }
 
-  handleSearchOutput(search,visibility){
-    this.setState({search:search})  
-    this.setState({visibility:visibility})
-    
+  handleSearchOutput(search, visibility) {
+    this.setState({ search: search })
+    this.setState({ visibility: visibility })
+
   }
- 
+
   render() {
-      
-    console.log("value=",this.state.value)
-      const filterqas= this.state.qas.filter((qa)=>{return qa.section===this.state.value});
-        console.log("filterqas=",filterqas)
-      
-      console.log("newUrl=", this.state.newUrl)
 
-      const filterfaq= this.state.qas.filter((faq)=>{return faq.url===this.state.newUrl});
-      console.log("this is filterfaq=",filterfaq)
-      // filter for search engine
-      const filtersearch=this.state.qas.filter((qas)=>{return qas.questionkey.toLowerCase().indexOf(this.state.search.toLowerCase()) !==-1})
-      
-      
-      return (
+    console.log("value=", this.state.value)
+    const filterqas = this.state.qas.filter((qa) => { return qa.section === this.state.value });
+    console.log("filterqas=", filterqas)
 
-       <div className="App">
-      
-      
+    console.log("newUrl=", this.state.newUrl)
+
+    const filterfaq = this.state.qas.filter((faq) => { return faq.url === this.state.newUrl });
+    console.log("this is filterfaq=", filterfaq)
+    // filter for search engine
+    const filtersearch = this.state.qas.filter((qas) => { return qas.questionkey.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 })
+
+
+    return (
+
+      <div className="App">
+
+
         <Router>
           <div>
-          {
-                this.state.newUrl ==="/"  ? <Title /> :null
-              }
-           
-              {
-                this.state.newUrl ==="/" && this.state.visibility==='true' ? <Area areaCallback = {this.handleChange}/> :null
-              }
-              {
-                this.state.newUrl ==="/" ? <Search {...this.state} searchCallback = {this.handleSearchOutput}/> :null
-              }
-              {
-                this.state.newUrl ==="/" && this.state.search !== '' ? <Route path = "/" render={() => filtersearch.map((qs) => (<SearchOutput key={qs.id} qs={qs} qaCallback = {this.changeUrl} />))}/> :null
-              }
-              {
-                
-                this.state.newUrl ==="/" && this.state.visibility==='true' ? <Route path = "/" render={() => filterqas.map((qa) => (<QA  key={qa.id} qa={qa} qaCallback = {this.changeUrl}/>))}/> :null
+            {
+              this.state.newUrl === "/" ? <Title /> : null
+            }
 
-              }
-              {
-                this.state.newUrl !=="/" ? <Route path = "/"  render = {() => filterfaq.map((faq)=>(<Faq  key={faq.id} faq={faq} faqCallback = {this.handlenewUrl}/>) )}/> : null
-              }
+            {
+              this.state.newUrl === "/" && this.state.visibility === 'true' ? <Area areaCallback={this.handleChange} /> : null
+            }
+            {
+              this.state.newUrl === "/" ? <Search {...this.state} searchCallback={this.handleSearchOutput} /> : null
+            }
+            {
+              this.state.newUrl === "/" && this.state.search !== '' ? <Route path="/" render={() => filtersearch.map((qs) => (<SearchOutput key={qs.id} qs={qs} qaCallback={this.changeUrl} />))} /> : null
+            }
+            {
+
+              this.state.newUrl === "/" && this.state.visibility === 'true' ? <Route path="/" render={() => filterqas.map((qa) => (<QA key={qa.id} qa={qa} qaCallback={this.changeUrl} />))} /> : null
+
+            }
+            {
+              this.state.newUrl !== "/" ? <Route path="/" render={() => filterfaq.map((faq) => (<Faq key={faq.id} faq={faq} faqCallback={this.handlenewUrl} />))} /> : null
+            }
           </div>
         </Router>
       </div>

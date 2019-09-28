@@ -15,19 +15,19 @@ export default class Title extends Component {
     render() {
 
         return (
-            <Container >
+          <Container>
 
-                <Row>
-                    <Col xs lg="3"></Col>
-                    <Col xs lg="6">
-                        <label style={{ color: 'red', font: 'bold 25px/30px Georgia, serif', paddingTop: '20px' }}> Frequently Asked Questions (FAQs) </label>
-                    </Col>
-                    <Col xs lg="3"></Col>
-                </Row>
+            <Row>
+              <Col xs lg="3" />
+              <Col xs lg="6">
+                <label style={{ color: 'red', font: 'bold 25px/30px Georgia, serif', paddingTop: '20px' }}> Frequently Asked Questions (FAQs) </label>
+              </Col>
+              <Col xs lg="3" />
+            </Row>
 
 
 
-            </Container>
+          </Container>
 
 
 

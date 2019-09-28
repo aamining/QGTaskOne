@@ -19,26 +19,26 @@ export default class SearchOutput extends Component {
     callback(event) {
 
         event.preventDefault();
-        const url = this.props.qs.url
+        const {url} = this.props.qs
         this.props.qaCallback(url)
     }
 
     render() {
 
         return (
-            <Container >
+          <Container>
 
-                <Row>
-                    <Col xs lg="1"></Col>
-                    <Col className="search">
-                        <ul>
-                            <a href={this.props.qs.url} style={{ border: 'none' }} onClick={this.callback} >{this.props.qs.questionkey}</a>
+            <Row>
+              <Col xs lg="1" />
+              <Col className="search">
+                <ul>
+                  <a href={this.props.qs.url} style={{ border: 'none' }} onClick={this.callback}>{this.props.qs.questionkey}</a>
 
-                        </ul>
-                    </Col>
-                    <Col xs lg="1"></Col>
-                </Row>
-            </Container>
+                </ul>
+              </Col>
+              <Col xs lg="1" />
+            </Row>
+          </Container>
         )
 
     }

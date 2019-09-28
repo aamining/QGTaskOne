@@ -24,13 +24,17 @@ export default class Faq extends Component {
 
         return (
 
-            <Jumbotron fluid>
-                <Container>
-                    <h1>{this.props.faq.question}</h1>
-                    <p> {this.props.faq.answer} </p>
-                    <Button onClick={this.callback}> Back to FAQ(s) page </Button>
-                </Container>
-            </Jumbotron>
+          <Jumbotron fluid>
+            <Container>
+              <h1>{this.props.faq.question}</h1>
+              <p> 
+                {' '}
+                {this.props.faq.answer}
+                {' '}
+              </p>
+              <Button onClick={this.callback}> Back to FAQ(s) page </Button>
+            </Container>
+          </Jumbotron>
 
 
         )

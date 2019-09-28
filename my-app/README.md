@@ -1,5 +1,5 @@
 
-** ESLINT  and Prettier
+* ESLINT  and Prettier
 
 ```
 yarn add eslint@5.16.0 babel-eslint@10.0.1
@@ -15,9 +15,9 @@ Yarn add -D eslint@5.16.0 babel-eslint@10.0.1
 Yarn add -D eslint-config-airbnb eslint-config-prettier eslint-plugin-react eslint-plugin-importprettier pretty-quick
 ```
 
->> .eslintrc.js
+>> .eslintrc
 ```
-[{
+{
     "parser": "babel-eslint",
     "parserOptions": {
         "sourceType": "module",
@@ -36,7 +36,7 @@ Yarn add -D eslint-config-airbnb eslint-config-prettier eslint-plugin-react esli
         "react/prop-types": ["warn"],
         "no-return-assign": ["off"]
     }
-}]
+}
 
 ```
 >> .prettierrc.js

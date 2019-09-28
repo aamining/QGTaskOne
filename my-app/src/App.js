@@ -34,7 +34,7 @@ class App extends Component {
 
   handleChange(value) {
 
-    this.setState({ value: value });
+    this.setState({ value });
 
   }
 
@@ -44,7 +44,7 @@ class App extends Component {
 
   }
 
-  handlenewUrl(newUrl) {
+  handlenewUrl() {
     this.setState({ newUrl: "/" })
     this.setState({ value: 'General questions' })
     this.setState({ visibility: "true" })
@@ -52,16 +52,16 @@ class App extends Component {
   }
 
   handleSearchOutput(search, visibility) {
-    this.setState({ search: search })
-    this.setState({ visibility: visibility })
+    this.setState({ search })
+    this.setState({ visibility })
 
   }
 
   render() {
 
-    console.log("value=", this.state.value)
+
     const filterqas = this.state.qas.filter((qa) => { return qa.section === this.state.value });
-    console.log("filterqas=", filterqas)
+
 
     console.log("newUrl=", this.state.newUrl)
 

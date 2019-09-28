@@ -17,7 +17,7 @@ export default class QA extends Component {
     callback(event) {
 
         event.preventDefault();
-        const url = this.props.qa.url
+        const {url} = this.props.qa
         this.props.qaCallback(url)
 
     }
@@ -27,18 +27,18 @@ export default class QA extends Component {
 
         return (
 
-            <Container >
+          <Container>
 
-                <Row>
-                    <Col xs lg="1"></Col>
-                    <Col className="qa">
-                        <ul>
-                            <a href={this.props.qa.url} style={{ border: 'none' }} onClick={this.callback} >{this.props.qa.questionkey}</a>
-                        </ul>
-                    </Col>
-                    <Col xs lg="1"></Col>
-                </Row>
-            </Container>
+            <Row>
+              <Col xs lg="1" />
+              <Col className="qa">
+                <ul>
+                  <a href={this.props.qa.url} style={{ border: 'none' }} onClick={this.callback}>{this.props.qa.questionkey}</a>
+                </ul>
+              </Col>
+              <Col xs lg="1" />
+            </Row>
+          </Container>
 
         )
 

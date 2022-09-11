@@ -30,13 +30,13 @@ export default class QA extends Component {
           <Container>
 
             <Row>
-              <Col xs lg="1" />
+              <Col xs="1" lg="1" />
               <Col className="qa">
                 <ul>
                   <a href={this.props.qa.url} style={{ border: 'none' }} onClick={this.callback}>{this.props.qa.questionkey}</a>
                 </ul>
               </Col>
-              <Col xs lg="1" />
+              <Col xs="1" lg="1" />
             </Row>
           </Container>
 

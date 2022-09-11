@@ -18,11 +18,11 @@ export default class Title extends Component {
           <Container>
 
             <Row>
-              <Col xs lg="3" />
-              <Col xs lg="6">
+              <Col xs="0" lg="3" />
+              <Col xs="12" lg="6">
                 <label style={{ color: 'red', font: 'bold 25px/30px Georgia, serif', paddingTop: '20px' }}> Frequently Asked Questions (FAQs) </label>
               </Col>
-              <Col xs lg="3" />
+              <Col xs="0" lg="3" />
             </Row>
 
 

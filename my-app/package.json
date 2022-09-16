@@ -14,12 +14,11 @@
     "react-scripts": "3.0.1"
   },
   "scripts": {
-    "start": "npm run build ",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src --fix",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client "
+    "lint": "eslint ./src --fix"
   },
   "eslintConfig": {
     "extends": "react-app"
